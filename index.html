@@ -25,11 +25,11 @@
             <label for="desc">Descrição</label>
             <input v-model="desc" type="text" name="desc" id="desc" value="">
             <label for="number">Valor da tarefa (1-13):</label>
-            <input v-model.number="num" type="number" name="valor" id="number" min="1" max="13">
+            <input v-model.number="number" type="number" name="valor" id="number" min="1" max="13">
             <button type="submit" name="button">Adicionar</button>
         </form>
         <button @click="allDone" type="button" name="button">Marcar todas como finalizadas</button>
-        <ul>
+      <div> <ul>
             <li v-for= "i in todos">
                 <input type="checkbox"  v-model="i.done">
                 
@@ -44,10 +44,16 @@
                 <button @click ="removeTodo(i)" type="button" name="button">Remover</button>
             </ul>
 
+            <ul v-for= "k in valor">
+                    
+                    <span :class="{done: k.done}">{{k.title2}}</span>
+                    
+            </ul>
+    
           
         </ul>
-       
-
+    </div> 
+        <div > {{valor}}</div>
     </main>
 
     <script src="app.js" charset="utf-8"></script>

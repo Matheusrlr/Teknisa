@@ -25,18 +25,17 @@ const app = new Vue({
             this.desc = '';
 
             this.valor.push({
-                title2: this.number,
-                done: false,
-                
+                title2: this.number       
             })
-            this.number = '';
-            console.log(number);
+           
         },
-        removeTodo(i,j){
+        removeTodo(i,j,k){
             const iIndex = this.todos.indexOf(i);
             this.todos.splice(iIndex, 1);
             const jIndex = this.descricao.indexOf(j);
             this.descricao.splice(jIndex, 1);
+            const kIndex = this.valor.indexOf(k);
+            this.valor.splice(kIndex, 1);
             
         },
         allDone(){
@@ -44,6 +43,8 @@ const app = new Vue({
             todo.done = true;
           });
         }
+
+
     }
 
 });
