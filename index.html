@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <title>To do</title>
+    <link rel="stylesheet" href="https://ez-css.now.sh">
+    <style>
+            .done {
+              text-decoration: line-through;
+            }
+          </style>
+</head>
+<body>
+    <main id="app">
+
+        <h3>{{title}}</h3>
+
+        <form @submit.prevent ="addTodo">
+            <label for="newTodo">Nome</label>
+            <input v-model="newTodo" type="text" name="newTodo" id="newTodo" value="">
+            <label for="desc">Descrição</label>
+            <input v-model="desc" type="text" name="desc" id="desc" value="">
+            <label for="number">Valor da tarefa (1-13):</label>
+            <input v-model.number="num" type="number" name="valor" id="number" min="1" max="13">
+            <button type="submit" name="button">Adicionar</button>
+        </form>
+        <button @click="allDone" type="button" name="button">Marcar todas como finalizadas</button>
+        <ul>
+            <li v-for= "i in todos">
+                <input type="checkbox"  v-model="i.done">
+                
+                <span :class="{done: i.done}">{{i.title}}</span>       
+
+           
+            </li>
+          
+            <ul v-for= "j in descricao">
+                    
+                <span :class="{done: j.done}">{{j.title1}}</span>
+                <button @click ="removeTodo(i)" type="button" name="button">Remover</button>
+            </ul>
+
+          
+        </ul>
+       
+
+    </main>
+
+    <script src="app.js" charset="utf-8"></script>
+</body>
+</html>
